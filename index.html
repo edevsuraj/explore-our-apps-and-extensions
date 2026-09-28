@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Apps & Extensions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card-hover: #222634;
+    --text: #e8eaf0;
+    --text-muted: #8b90a0;
+    --accent: #6c5ce7;
+    --accent-glow: rgba(108, 92, 231, 0.25);
+    --green: #00b894;
+    --orange: #fdcb6e;
+    --blue: #74b9ff;
+    --pink: #fd79a8;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 60px 20px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe, #74b9ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 24px;
+    padding: 30px;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    backdrop-filter: blur(10px);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255,255,255,0.14);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 40px var(--accent-glow);
+  }
+
+  .card:hover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    opacity: 0.03;
+    background: radial-gradient(circle at 50% 0%, white, transparent 70%);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .card-icon img {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+  }
+
+  .card:hover .card-icon img {
+    transform: scale(1.08);
+  }
+
+  .card-title-area {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .card .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .card .badge svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .card .desc {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-meta .users {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  .card-meta .arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+
+  .card:hover .arrow {
+    background: var(--accent);
+    transform: translateX(4px);
+  }
+
+  .card-meta .arrow svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+  }
+
+  /* Color themes */
+  .purple::before { background: linear-gradient(90deg, #6c5ce7, #a29bfe); }
+  .purple .badge { background: rgba(108,92,231,0.12); color: #a29bfe; }
+
+  .green::before { background: linear-gradient(90deg, #00b894, #55efc4); }
+  .green .badge { background: rgba(0,184,148,0.12); color: #55efc4; }
+
+  .orange::before { background: linear-gradient(90deg, #e17055, #fdcb6e); }
+  .orange .badge { background: rgba(253,203,110,0.12); color: #fdcb6e; }
+
+  .blue::before { background: linear-gradient(90deg, #0984e3, #74b9ff); }
+  .blue .badge { background: rgba(116,185,255,0.12); color: #74b9ff; }
+
+  .pink::before { background: linear-gradient(90deg, #e84393, #fd79a8); }
+  .pink .badge { background: rgba(253,121,168,0.12); color: #fd79a8; }
+
+  .red::before { background: linear-gradient(90deg, #d63031, #ff7675); }
+  .red .badge { background: rgba(255,118,117,0.12); color: #ff7675; }
+
+  .header-links {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+
+  .header-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 14px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    color: var(--text);
+  }
+
+  .header-link svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .header-link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+
+  .header-link.coffee {
+    background: linear-gradient(135deg, #ffdd00, #ffb800);
+    color: #1a1a1a;
+    border: none;
+  }
+
+  .header-link.email:hover {
+    border-color: var(--accent);
+    box-shadow: 0 8px 20px var(--accent-glow);
+  }
+
+  .header-link.upi:hover {
+    border-color: var(--green);
+    box-shadow: 0 8px 20px rgba(0,184,148,0.15);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  footer a:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    header h1 { font-size: 2rem; }
+    .grid { grid-template-columns: 1fr; }
+    body { padding: 40px 16px; }
+    .header-links { flex-direction: column; align-items: center; }
+    .header-link { width: 100%; max-width: 320px; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>Our Apps & Extensions</h1>
+    <p>Chrome Extensions and Android Apps built by Suraj Chauhan</p>
+    <div class="header-links">
+      <a class="header-link coffee" href="https://buymeacoffee.com/surajchauhan" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>
+        Buy Me a Coffee
+      </a>
+      <a class="header-link email" href="mailto:edev.suraj@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+        edev.suraj@gmail.com
+      </a>
+      <a class="header-link upi" href="upi://pay?pa=8112773132@upi&pn=Suraj%20Chauhan&am=&cu=INR">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg>
+        UPI: 8112773132
+      </a>
+    </div>
+  </header>
+
+  <div class="section">
+    <div class="section-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#a29bfe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 8h20"/><circle cx="12" cy="14" r="3"/></svg>
+      Chrome Extensions
+    </div>
+    <div class="grid">
+
+      <a class="card purple" href="https://chromewebstore.google.com/detail/agipopaogpcjclpfknnjcigcjpjnhkfi?utm_source=item-share-cb" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-icon">
+            <img src="https://lh3.googleusercontent.com/CNRetmJ7mwb1MBW8z46EWOjaquiEzLcMEXWYHmGu3Z4lPk18QTNKKoZia_7RD8oSsGjdbDDQldqYKt6nwurY5ZfS8A=s128-rj-sc0x00ffffff" alt="Lock Website">
+          </div>
+          <div class="card-title-area">
+            <h3>Lock Website</h3>
+            <span class="badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Privacy
+            </span>
+          </div>
+        </div>
+        <p class="desc">Password-protect any website by domain. SHA-256 encrypted, per-tab sessions, smart subdomain matching.</p>
+        <div class="card-meta">
+          <span class="users">View in Store</span>
+          <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a class="card blue" href="https://chromewebstore.google.com/detail/mcggbgmceoaekajoonfjaebhhgcgmljp?utm_source=item-share-cb" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-icon">
+            <img src="https://lh3.googleusercontent.com/BQEKqcSx89rxPMZ4YwAP1tYw_Gikgmg-rrbp2Yo7-wRVYfg3I3JAPVM8EO_t9dvdKGuYFo0UD5lxCKC9i5lNKUmFxQ=s128-rj-sc0x00ffffff" alt="Custom Tab Wallpaper">
+          </div>
+          <div class="card-title-area">
+            <h3>Custom Tab Wallpaper</h3>
+            <span class="badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Customization
+            </span>
+          </div>
+        </div>
+        <p class="desc">Turn your Chrome new tab into a custom image or video wallpaper. Upload your own media or add remote URLs.</p>
+        <div class="card-meta">
+          <span class="users">View in Store</span>
+          <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a class="card green" href="https://chromewebstore.google.com/detail/hibgjhhdkijjdcbfnbhhdhgcgcbehnpp?utm_source=item-share-cb" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-icon">
+            <img src="https://lh3.googleusercontent.com/reGIChDL735pl4XnklkLrcDEEYWlAJ_IYdwNnyL-jR180unXYFJFk9vVugaCxbix-Lh0w5y6Z1Z8CoEmVN67tGHMT-Y=s128-rj-sc0x00ffffff" alt="SiteSwift">
+          </div>
+          <div class="card-title-area">
+            <h3>SiteSwift - Website Speed Audit</h3>
+            <span class="badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Developer Tools
+            </span>
+          </div>
+        </div>
+        <p class="desc">Find slow website resources, Core Web Vitals issues, and prioritized fixes in one click. Performance and SEO audit.</p>
+        <div class="card-meta">
+          <span class="users">View in Store</span>
+          <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a class="card orange" href="https://chromewebstore.google.com/detail/nlebepbkphepaalodmhaabnppibljnmo?utm_source=item-share-cb" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-icon">
+            <img src="https://lh3.googleusercontent.com/vy_J0WU9Ra0TrlmTojkxZRBPsJ1KMO-Oy2X2IBGg41GJcxlq3gG8HpG-CdhhiQW7iVczu0Cqc_KPMI9B878pxWyz1A=s128-rj-sc0x00ffffff" alt="Indian Fake Filler">
+          </div>
+          <div class="card-title-area">
+            <h3>Indian Fake Filler</h3>
+            <span class="badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Developer Tools
+            </span>
+          </div>
+        </div>
+        <p class="desc">Fill forms with realistic Indian test data, saved preferences, and smart random values for unknown fields.</p>
+        <div class="card-meta">
+          <span class="users">View in Store</span>
+          <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a class="card pink" href="https://chromewebstore.google.com/detail/bppelagfdfggikalpgohhkkaaenllgpp?utm_source=item-share-cb" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-icon">
+            <img src="https://lh3.googleusercontent.com/8ocnHWQMgVIEfNzG6KfzTMzk9RSOLrHIQsXX2tVDP73m2R5qG-syoI_2OTdXt3QETv0Uc7tBaAMRHO6YUd-Kayn_=s128-rj-sc0x00ffffff" alt="Remindy">
+          </div>
+          <div class="card-title-area">
+            <h3>Remindy</h3>
+            <span class="badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Productivity
+            </span>
+          </div>
+        </div>
+        <p class="desc">Create reminders, see countdowns in new tabs, and get browser notifications when time is up.</p>
+        <div class="card-meta">
+          <span class="users">View in Store</span>
+          <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a class="card red" href="https://chromewebstore.google.com/detail/jlnmlbpechhhbmkgimlajbgmanpccpjk?utm_source=item-share-cb" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-icon">
+            <img src="https://lh3.googleusercontent.com/NC40T1alGwgWBDy_OH2phbvMhKZUqhNGUt4FJyOoEUgenfIFIqmWokPu0rZznbuOFhTS_mrwflHHTJ_XhIt8S-KiJPI=s128-rj-sc0x00ffffff" alt="Yogi Adityanath New Tab">
+          </div>
+          <div class="card-title-area">
+            <h3>Yogi Adityanath New Tab</h3>
+            <span class="badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Education
+            </span>
+          </div>
+        </div>
+        <p class="desc">Beautiful new tab page featuring Yogi Adityanath with inspirational quotes in English and Hindi.</p>
+        <div class="card-meta">
+          <span class="users">View in Store</span>
+          <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#55efc4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01"/></svg>
+      Android Apps
+    </div>
+    <div class="grid">
+
+      <a class="card green" href="https://play.google.com/store/apps/details?id=com.edevsuraj.mathify&pcampaignid=web_share" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-icon">
+            <img src="https://play-lh.googleusercontent.com/MIn4zdu9TVUNTHBmxWLFECQClt1BEH0faR2d-V_MhNtxBtZbPc01xP9QUSpWZ5cwGShZLCIBt8XSig9V51hk8g=s0-br30" alt="Mathify">
+          </div>
+          <div class="card-title-area">
+            <h3>Mathify: Maths Practice</h3>
+            <span class="badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Education
+            </span>
+          </div>
+        </div>
+        <p class="desc">Math practice app for children and students. Addition, subtraction, multiplication, division, quizzes and progress tracking.</p>
+        <div class="card-meta">
+          <span class="users">View in Store</span>
+          <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a class="card purple" href="https://play.google.com/store/apps/details?id=com.suraj.englishsetgo&pcampaignid=web_share" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-icon">
+            <img src="https://play-lh.googleusercontent.com/OwMqcur0A3bB8EIlMdEsM50ZQ0QH8YwR4PN7mFep-AqrgOphPJjtj7cHpoHhnxm7X0uMqDdkVEMRfF1gq_rG=s0-br30" alt="English Set Go">
+          </div>
+          <div class="card-title-area">
+            <h3>English Set Go</h3>
+            <span class="badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Education
+            </span>
+          </div>
+        </div>
+        <p class="desc">Learn English grammar through Hindi. All 12 tenses, 250+ verbs, 120+ phrases, and multiple practice formats.</p>
+        <div class="card-meta">
+          <span class="users">View in Store</span>
+          <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>Built by Suraj Chauhan &middot; <a href="mailto:edev.suraj@gmail.com">edev.suraj@gmail.com</a> &middot; &copy; 2026</p>
+  </footer>
+
+</div>
+</body>
+</html>
