@@ -1,10 +1,12 @@
 # Our Apps & Extensions
 
+**Live site:** https://edevsuraj.github.io/explore-our-apps-and-extensions/
+
 A single-page showcase of every Chrome extension and Android app built and published by **Suraj Chauhan** (`edev.suraj`).
 
 Each card links straight to its live store listing, so visitors can install or view the product in one click.
 
-## Live Site
+## Running Locally
 
 Open `index.html` in any browser — no build step, no dependencies.
 
