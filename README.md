@@ -2,7 +2,7 @@
 
 **Live site:** https://edevsuraj.github.io/explore-our-apps-and-extensions/
 
-A single-page showcase of every Chrome extension and Android app built and published by **Suraj Chauhan** (`edev.suraj`).
+A single-page showcase of every Chrome extension, Android app and batch file built and published by **Suraj Chauhan** (`edev.suraj`).
 
 Each card links straight to its live store listing, so visitors can install or view the product in one click.
 
@@ -29,6 +29,12 @@ Open `index.html` in any browser — no build step, no dependencies.
 | --- | --- | --- |
 | Mathify: Maths Practice | Education | [Google Play](https://play.google.com/store/apps/details?id=com.edevsuraj.mathify) |
 | English Set Go | Education | [Google Play](https://play.google.com/store/apps/details?id=com.suraj.englishsetgo) |
+
+**1 Batch File**
+
+| File | Category | Page |
+| --- | --- | --- |
+| PC Deep Cleaner | Windows Tool | [Live Page](https://edevsuraj.github.io/batch-cleaner/) |
 
 ## Tech
 
