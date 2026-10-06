@@ -30,11 +30,12 @@ Open `index.html` in any browser — no build step, no dependencies.
 | Mathify: Maths Practice | Education | [Google Play](https://play.google.com/store/apps/details?id=com.edevsuraj.mathify) |
 | English Set Go | Education | [Google Play](https://play.google.com/store/apps/details?id=com.suraj.englishsetgo) |
 
-**1 Batch File**
+**2 Batch Files**
 
 | File | Category | Page |
 | --- | --- | --- |
 | PC Deep Cleaner | Windows Tool | [Live Page](https://edevsuraj.github.io/batch-cleaner/) |
+| UserCleanup | Windows Tool | [Live Page](https://edevsuraj.github.io/batch-remove-user-accounts-windows/) |
 
 ## Tech
 
